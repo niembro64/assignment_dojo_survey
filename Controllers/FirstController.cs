@@ -11,7 +11,7 @@ namespace assignment_dojo_survey.Controllers
     // get
     [HttpGet]
     // tell it what name of route is
-    [Route("")] // empty is front page
+    [Route("index")] // empty is front page
     public ViewResult Index()
     {
 
@@ -39,20 +39,19 @@ namespace assignment_dojo_survey.Controllers
     }
 
 
-    [HttpGet("form")]
+    [HttpGet("")]
     public ViewResult Form()
     {
       return View();
     }
 
-    [HttpPost("postForm")]
-    public IActionResult postForm(string name, string color, int number){
-      Console.WriteLine($"name: {name}");
-      Console.WriteLine($"color: {color}");
-      Console.WriteLine($"number: {number}");
+    [HttpPost("result")]
+    public IActionResult result(string name, string location, string language, string comment){
+
       ViewBag.name = name;
-      ViewBag.color = color;
-      ViewBag.number = number;
+      ViewBag.location = location;
+      ViewBag.language = language;
+      ViewBag.comment = comment;
       return View("Success");
       // return RedirectToAction("Success");
     }
